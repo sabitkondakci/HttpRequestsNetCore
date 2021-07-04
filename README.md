@@ -18,3 +18,6 @@
 
 ### IHttpClientHandler
 ![IHttpClientBuilder](https://github.com/SabitKondakci/HttpRequestsNetCore/blob/master/HttpClientHandler.png)
+---
+### IHttpClientFactory Lifecycle
+![IHttpClientBuilder](https://github.com/SabitKondakci/HttpRequestsNetCore/blob/master/IHttpClientFactory.jpg)
