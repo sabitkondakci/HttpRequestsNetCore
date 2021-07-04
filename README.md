@@ -4,7 +4,7 @@
 
 **[GitHubAPI]** : api.github.com/users/{username}
 
-[WeatherAPI]: https://www.weatherapi.com/?target=_blank
+[WeatherAPI]: https://www.weatherapi.com/
 [GitHubAPI]: https://docs.github.com/en/rest
 
 ---
