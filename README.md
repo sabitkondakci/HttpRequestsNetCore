@@ -1,8 +1,8 @@
 ### Socket Exhaustion Solution by IHttpClientFactory
 --- 
-**[WeatherAPI]** : api.weather.com?key="..."&city=".."&aqi=yes/no
+[WeatherAPI] : api.weather.com?key="..."&city=".."&aqi=yes/no
 
-**[GitHubAPI]** : api.github.com/users/{username}
+[GitHubAPI] : api.github.com/users/{username}
 
 [WeatherAPI]: (https://www.weatherapi.com/)
 [GitHubAPI]: (https://docs.github.com/en/rest)
