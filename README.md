@@ -4,8 +4,8 @@
 
 **[GitHubAPI]** : api.github.com/users/{username}
 
-[WeatherAPI]: https://www.weatherapi.com/
-[GitHubAPI]: https://docs.github.com/en/rest
+[WeatherAPI]: https://www.weatherapi.com/ {:target="_blank"}
+[GitHubAPI]: https://docs.github.com/en/rest {:target="_blank"}
 
 ---
 ### Microsoft Documents
@@ -13,6 +13,6 @@
 - [Use IHttpClientFactory to implement resilient HTTP requests][IHttpClientFactory]
 
 
-[MicrosoftHttpClient]: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-5.0
-[IHttpClientFactory]: https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
+[MicrosoftHttpClient]: https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-5.0 {:target="_blank"}
+[IHttpClientFactory]: https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests {:target="_blank"}
 
