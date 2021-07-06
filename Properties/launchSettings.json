@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast?city=Ankara",
+      "launchUrl": "weather-forecast?city=Ankara",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "HttpClient": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast?city=Rize",
+      "launchUrl": "weather-forecast?city=Rize",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
