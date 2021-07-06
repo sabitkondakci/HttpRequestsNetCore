@@ -75,6 +75,12 @@ namespace HttpClientNetCore
             //Maximum TimeSpan       10675199.02:48:05.4775807
             //Minimum TimeSpan      -10675199.02:48:05.4775808
             //Zero TimeSpan                   00:00:00
+
+            services.AddSwaggerDocument(configure =>
+            {
+                configure.Title = "HttpClientTest";
+                configure.DocumentName = "API";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,6 +89,9 @@ namespace HttpClientNetCore
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             //app.UseHttpsRedirection();
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseRouting();
 
