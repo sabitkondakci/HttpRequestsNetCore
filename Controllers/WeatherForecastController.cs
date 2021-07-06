@@ -7,7 +7,10 @@ using Newtonsoft.Json;
 namespace HttpClientNetCore.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]")] // [Route("[controller]/[action]") [action] is replaced with method names
+
+
+
     public class WeatherForecastController : ControllerBase
     {
         //private readonly IHttpClientFactory _httpClientFactory;
