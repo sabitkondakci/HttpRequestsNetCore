@@ -4,6 +4,7 @@ using HttpClientNetCore.Abstract;
 using HttpClientNetCore.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,10 +23,15 @@ namespace HttpClientNetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            services.AddHttpClient();//IHttpClientFactory implemented in post method
+            services.AddControllers(options =>
+            {
+                options.Conventions.Add(new RouteTokenTransformerConvention(
+                    new SlugifyParameterTransformer()));
+            });
+            services.AddHttpClient(); //IHttpClientFactory implemented in post method
 
             #region TypeClientServices
+
             /*
                 //###### Typed Clients is recommended over others! ######
 
@@ -45,7 +51,8 @@ namespace HttpClientNetCore
                     x.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory");
                 });
 
-                */ 
+                */
+
             #endregion
 
             //IWeatherService & IGitHubService Registry this is another alternative.
@@ -54,8 +61,7 @@ namespace HttpClientNetCore
             {
                 //HttpClient is registered automatically ,in period of GitHubModel registry
                 x.BaseAddress = new Uri("http://api.weatherapi.com/v1/current.json");
-
-            }).SetHandlerLifetime(TimeSpan.FromMinutes(5));// default socket lifetime is 2 minutes.
+            }).SetHandlerLifetime(TimeSpan.FromMinutes(5)); // default socket lifetime is 2 minutes.
 
             services.AddHttpClient<IGitHubService, GitHubModel>(g =>
             {
@@ -63,7 +69,6 @@ namespace HttpClientNetCore
                 g.BaseAddress = new Uri("http://api.github.com/");
                 g.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
                 g.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory");
-
             }); //.SetHandlerLifetime(TimeSpan.MaxValue);//to keep the socket alive for good
 
             // ## TimeSpan ##
@@ -75,10 +80,7 @@ namespace HttpClientNetCore
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             //app.UseHttpsRedirection();
 
@@ -86,10 +88,7 @@ namespace HttpClientNetCore
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }
