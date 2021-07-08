@@ -97,7 +97,13 @@ namespace HttpClientNetCore
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints => 
+            {
+                 endpoints.MapControllers();
+                 endpoints.MapAreaControllerRoute(name:"zoo",areaName:"Zoo",pattern:"Zoo/{controller}/{action}");
+                 endpoints.MapControllerRoute(name: "default",
+                                 pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }
