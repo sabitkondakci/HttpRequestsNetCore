@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 
 namespace HttpClientNetCore.Controllers
 {
+    // [Area("Zoo")] this gives a flexible routing technique for big projects!
     [ApiController]
     [Route("[controller]")] // [Route("[controller]/[action]") [action] is replaced with method names, "-" separation included.
     public class WeatherForecastController : ControllerBase
@@ -31,6 +32,11 @@ namespace HttpClientNetCore.Controllers
 
         private async Task<string> BindGithubInfo(string username)
         {
+            //[Area("Zoo")]
+            // url : /Zoo/Users/AddUser?Name=Cat&Amount=10&Color=Black%2FWhite
+            var url = Url.Action("AddUser", "Users", new { Area = "Zoo", Name = "Cat", Amount=10, Color = "Black/White"});
+            Console.WriteLine("Value: "+url);
+            
             #region TypedClients
             //var httpClient = _httpClientFactory.CreateClient("github");
             //var url = $"/users/{username}";
